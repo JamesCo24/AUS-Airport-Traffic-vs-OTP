@@ -38,7 +38,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="Choropleth" class="vis-container"></div>
+                <div id="#MonthlyFlightsVSTraffic" class="vis-container"></div>
             </div>
             <div class="pure-u-1-2">
                 <div class="description description-right">
@@ -73,6 +73,9 @@
         }).catch(console.error);
 
         vegaEmbed('#MonthlyFlightBreakdown', vis2, { "actions": false }).then(function (result) {
+        }).catch(console.error);
+
+        vegaEmbed('#MonthlyFlightsVSTraffic', vis1, { "actions": false }).then(function (result) {
         }).catch(console.error);
 
         vegaEmbed('#Choropleth', vis3, { "actions": false }).then(function (result) {
