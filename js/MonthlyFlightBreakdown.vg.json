@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 800,
+  "width": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "Departures Delayed", "as": "Monthly Delayed Departures"},
+        {"op": "sum", "field": "Arrivals Delayed", "as": "Monthly Delayed Arrivals"},
+        {"op": "sum", "field": "Sectors Scheduled", "as": "Monthly Sectors Scheduled"},
+        {"op": "sum", "field": "Cancellations", "as": "Monthly Cancellations"}
+      ], "groupby": ["Month"]
+    },
+    {
+      "calculate": "datum['Monthly Sectors Scheduled']-datum['Monthly Cancellations']", "as": "Monthly Flights"
+    },
+    {
+      "calculate": "datum['Monthly Flights']-datum['Monthly Delayed Departures']-datum['Monthly Delayed Arrivals']", "as": "Monthly On Time"
+    },
+    {
+      "fold": ["Monthly On Time", "Monthly Delayed Departures", "Monthly Delayed Arrivals"], "as": ["Delay Type", "Delay Count"]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Month",
+      "type": "ordinal",
+      "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    },
+    "y":{
+      "field": "Monthly Flights",
+      "type": "quantitative"
+    },
+    "color":{
+      "field": "Delay Type"
+    },
+    "tooltip":[
+      {"field": "Monthly Flights", "type": "quantitative", "format": ","},
+      {"field": "Monthly On Time", "type": "quantitative", "format": ","},
+      {"field": "Monthly Delayed Departures", "type": "quantitative", "format": ","},
+      {"field": "Monthly Delayed Arrivals", "type": "quantitative", "format": ","}
+    ]
+  }
+}
