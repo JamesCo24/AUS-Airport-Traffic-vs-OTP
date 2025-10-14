@@ -1,0 +1,194 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "background": "white",
+  "padding": 5,
+  "width": 800,
+  "height": 600,
+  "style": "view",
+  "data": [
+    {
+      "name": "Aus_Traffic",
+      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv",
+      "format": {"type": "csv", "delimiter": ","}
+    },
+    {
+      "name": "Graticules",
+      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/js/AusMapWithGraticules.json",
+      "format": {"type": "topojson", "feature": "ne_110m_graticules_10"}
+    },
+    {
+      "name": "Traffic_Data",
+      "source": "Aus_Traffic",
+      "transform": [
+        {
+          "type": "joinaggregate",
+          "as": ["Annual_Traffic", "Annual_Arrivals", "Annual_Departures"],
+          "ops": ["sum", "sum", "sum"],
+          "fields": ["Pax_Total", "Pax_In", "Pax_Out"],
+          "groupby": ["Airport"]
+        },
+        {
+          "type": "geojson",
+          "fields": ["longitude", "latitude"],
+          "signal": "layer_0_geojson_0"
+        },
+        {
+          "type": "geopoint",
+          "projection": "projection",
+          "fields": ["longitude", "latitude"],
+          "as": ["layer_0_x", "layer_0_y"]
+        }
+      ]
+    },
+    {
+      "name": "State_Data",
+      "source": "Aus_Traffic",
+      "transform": [
+        {
+          "type": "aggregate",
+          "as": ["State_Annual_Traffic", "State_Annual_Arrivals", "State_Annual_Departures"],
+          "ops": ["sum", "sum", "sum"],
+          "fields": ["Pax_Total", "Pax_In", "Pax_Out"],
+          "groupby": ["State"]
+        }
+      ]
+    },
+    {
+      "name": "Aus_States",
+      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/js/AusMapWithGraticules.json",
+      "format": {
+        "type": "topojson",
+        "feature": "GCCSA_2021_AUST_GDA2020",
+        "parse": {}
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"properties\"] && datum[\"properties\"][\"STE_NAME21\"]",
+          "as": "properties.STE_NAME21"
+        },
+        {
+          "type": "lookup",
+          "from": "State_Data",
+          "key": "State",
+          "fields": ["properties.STE_NAME21"],
+          "values": [
+            "State_Annual_Traffic",
+            "State_Annual_Arrivals",
+            "State_Annual_Departures"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"State_Annual_Traffic\"]) && isFinite(+datum[\"State_Annual_Traffic\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {
+        "signal": "[layer_0_geojson_0, data('Aus_States'), data('Aus_Graticules')]"
+      },
+      "type": "mercator"
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "Aus_States"},
+      "encode": {
+        "update": {
+          "fill": {"scale": "fill", "field": "State_Annual_Traffic"},
+          "stroke": {"value": "black"},
+          "tooltip": {
+            "signal": "{\"State\": isValid(datum[\"properties.STE_NAME21\"]) ? datum[\"properties.STE_NAME21\"] : \"\"+datum[\"properties.STE_NAME21\"], \"State Annual Traffic\": format(datum[\"State_Annual_Traffic\"], \",\"), \"State Annual Arrivals\": format(datum[\"State_Annual_Arrivals\"], \",\"), \"State Annual Departures\": format(datum[\"State_Annual_Departures\"], \",\")}"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"State_Annual_Traffic: \" + (format(datum[\"State_Annual_Traffic\"], \"\")) + \"; State: \" + (isValid(datum[\"properties.STE_NAME21\"]) ? datum[\"properties.STE_NAME21\"] : \"\"+datum[\"properties.STE_NAME21\"]) + \"; State Annual Traffic: \" + (format(datum[\"State_Annual_Traffic\"], \",\")) + \"; State Annual Arrivals: \" + (format(datum[\"State_Annual_Arrivals\"], \",\")) + \"; State Annual Departures: \" + (format(datum[\"State_Annual_Departures\"], \",\"))"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "Graticules"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "#b5b5b5"},
+          "fill": {"value": "#4c78a8"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_0_marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "from": {"data": "Traffic_Data"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.2},
+          "fill": {"value": "violet"},
+          "tooltip": {
+            "signal": "{\"Airport\": isValid(datum[\"Airport\"]) ? datum[\"Airport\"] : \"\"+datum[\"Airport\"], \"Annual Traffic\": format(datum[\"Annual_Traffic\"], \",\"), \"Annual Arrivals\": format(datum[\"Annual_Arrivals\"], \",\"), \"Annual Departures\": format(datum[\"Annual_Departures\"], \",\")}"
+          },
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"longitude: \" + (format(datum[\"longitude\"], \"\")) + \"; latitude: \" + (format(datum[\"latitude\"], \"\")) + \"; Annual_Traffic: \" + (isValid(datum[\"Annual_Traffic\"]) ? datum[\"Annual_Traffic\"] : \"\"+datum[\"Annual_Traffic\"]) + \"; Airport: \" + (isValid(datum[\"Airport\"]) ? datum[\"Airport\"] : \"\"+datum[\"Airport\"]) + \"; Annual Traffic: \" + (format(datum[\"Annual_Traffic\"], \",\")) + \"; Annual Arrivals: \" + (format(datum[\"Annual_Arrivals\"], \",\")) + \"; Annual Departures: \" + (format(datum[\"Annual_Departures\"], \",\"))"
+          },
+          "x": {"field": "layer_0_x"},
+          "y": {"field": "layer_0_y"},
+          "size": {"scale": "size", "field": "Annual_Traffic"},
+          "shape": {"value": "circle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "size",
+      "type": "point",
+      "domain": {"data": "Traffic_Data", "field": "Annual_Traffic", "sort": true},
+      "range": [50, 400]
+    },
+    {
+      "name": "fill",
+      "type": "linear",
+      "domain": {"data": "Aus_States", "field": "State_Annual_Traffic"},
+      "range": {"scheme": "lighttealblue"}, 
+      "interpolate": "hcl",
+      "zero": false
+    }
+  ],
+  "legends": [
+    {
+      "size": "size",
+      "symbolType": "circle",
+      "title": "Annual Airport Traffic",
+      "encode": {
+        "symbols": {
+          "update": {
+            "fill": {"value": "#4c78a8"},
+            "opacity": {"value": 0.7},
+            "stroke": {"value": "transparent"}
+          }
+        }
+      }
+    },
+    {
+      "fill": "fill",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "title": "Annual State Traffic"
+    }
+  ]
+}
