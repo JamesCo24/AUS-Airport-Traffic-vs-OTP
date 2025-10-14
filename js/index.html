@@ -69,9 +69,14 @@
         var vis2 = "MonthlyFlightBreakdown.vg.json";
         var vis3 = "Choropleth.vg.json";
 
-        vegaEmbed('MonthlyFlights', vis1, {"actions": false});
-        vegaEmbed('MonthlyFlightBreakdown', vis2, {"actions": false});
-        vegaEmbed('Choropleth', vis3, {"actions": false});
+        vegaEmbed('#MonthlyFlights', vis1, { "actions": false }).then(function (result) {
+        }).catch(console.error);
+
+        vegaEmbed('#MonthlyFlightBreakdown', vis2, { "actions": false }).then(function (result) {
+        }).catch(console.error);
+
+        vegaEmbed('#Choropleth', vis3, { "actions": false }).then(function (result) {
+        }).catch(console.error);
 
     </script>
 </body>

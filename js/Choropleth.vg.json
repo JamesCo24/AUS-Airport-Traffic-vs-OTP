@@ -178,7 +178,7 @@
       "encode": {
         "symbols": {
           "update": {
-            "fill": {"value": "#4c78a8"},
+            "fill": {"value": "violet"},
             "opacity": {"value": 0.7},
             "stroke": {"value": "transparent"}
           }
