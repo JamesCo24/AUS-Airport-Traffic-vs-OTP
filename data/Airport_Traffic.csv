@@ -1,4 +1,4 @@
-,AIRPORT,Month,Dom_Pax_In,Dom_Pax_Out,Dom_Pax_Total,Int_Pax_In,Int_Pax_Out,Int_Pax_Total,Pax_In,Pax_Out,Pax_Total,latitude,longitude,State
+,Airport,Month,Dom_Pax_In,Dom_Pax_Out,Dom_Pax_Total,Int_Pax_In,Int_Pax_Out,Int_Pax_Total,Pax_In,Pax_Out,Pax_Total,latitude,longitude,State
 0,Hamilton Island,January,19849,22780,42629,0,0,0,19849,22780,42629,-20.35,148.95,Queensland
 1,Adelaide,February,293471,285493,578964,37176,29696,66872,330647,315189,645836,-34.95,138.53,South Australia
 2,Adelaide,March,320056,311979,632035,33433,35570,69003,353489,347549,701038,-34.95,138.53,South Australia
