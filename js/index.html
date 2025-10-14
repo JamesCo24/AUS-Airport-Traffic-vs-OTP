@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Australian Airline Traffic and Delays</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+
+<body>
+    <div class="page">
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>Flights Throughout the Year</h2>
+                    <p>Throughout the year the number of people booking flights can vary wildly. As we can see from the plots to the left, the number of flights increase at both the start and end of the year, with a sharp decrease around the middle. 
+                        While this in turn causes a much larger number of delayed flights, when looking at the actual proportions we can see that the proportion of delays peak in June, the month with the lowest number of flights.</p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="MonthlyFlights" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3" style="width: 31.5%;">
+                <div id="MonthlyFlightBreakdown", class="vis-container", style="margin-left: 15px;"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="Choropleth" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <h2>Flights vs Passengers</h2>
+                    <p>In this section I have a different graph looking at the change in the number of passengers and flights throughout the year.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+            
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="Choropleth" class="vis-container"></div>
+        </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <h2>Where is Everyone Going?</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var vis1 = "MonthlyFlights.vg.json";
+        var vis2 = "MonthlyFlightBreakdown.vg.json";
+        var vis3 = "Choropleth.vg.json";
+
+        vegaEmbed('MonthlyFlights', vis1, {"actions": false});
+        vegaEmbed('MonthlyFlightBreakdown', vis2, {"actions": false});
+        vegaEmbed('Choropleth', vis3, {"actions": false});
+
+    </script>
+</body>
+</html>

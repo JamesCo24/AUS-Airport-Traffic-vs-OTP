@@ -21,15 +21,6 @@
       "calculate": "datum['Monthly Flights']-datum['Monthly Delayed Departures']-datum['Monthly Delayed Arrivals']", "as": "Monthly On Time"
     },
     {
-        "calculate": "100*datum['Monthly Delayed Departures']/(datum['Monthly Flights'])", "as": "Departure Delay %"
-    },
-    {
-        "calculate": "100*datum['Monthly Delayed Arrivals']/(datum['Monthly Flights'])", "as": "Arrival Delay %"
-    },
-    {
-        "calculate": "100*datum['Monthly On Time']/(datum['Monthly Flights'])", "as": "On Time %"
-    },
-    {
       "fold": ["Monthly On Time", "Monthly Delayed Departures", "Monthly Delayed Arrivals"], "as": ["Delay Type", "Delay Count"]
     },
     {
@@ -46,10 +37,8 @@
       "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     },
     "y":{
-        "title": "Proportion of Flights",
-        "field": "Breakdown",
-        "type": "quantitative",
-        "stack": "normalize"
+      "field": "Breakdown",
+      "type": "quantitative"
     },
     "color":{
       "field": "Delay Type",
@@ -57,9 +46,9 @@
     },
     "tooltip":[
       {"field": "Monthly Flights", "type": "quantitative", "format": ","},
-      {"field": "On Time %", "type": "quantitative", "format": ".2f"},
-      {"field": "Departure Delay %", "type": "quantitative", "format": ".2f"},
-      {"field": "Arrival Delay %", "type": "quantitative", "format": ".2f"}
+      {"field": "Monthly On Time", "type": "quantitative", "format": ","},
+      {"field": "Monthly Delayed Departures", "type": "quantitative", "format": ","},
+      {"field": "Monthly Delayed Arrivals", "type": "quantitative", "format": ","}
     ]
   }
 }
