@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "layer": [
+    {
+    "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv"},
+    "transform": [
+      {
+        "aggregate": [
+          {"op": "sum", "field": "Pax_In", "as": "State_Pax_In"},
+          {"op": "sum", "field": "Pax_Out", "as": "State_Pax_Out"},
+          {"op": "sum", "field": "Pax_Total", "as": "State_Pax"}
+        ], "groupby": ["Month", "State"]
+      }
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Month",
+        "type": "ordinal",
+        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      },
+      "y": {
+        "field": "State_Pax",
+        "type": "quantitative"
+      }
+    }
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"},
+      "transform": [
+        {
+          "calculate": "datum['Departures On Time']+datum['Departures Delayed']",
+          "as": "Num_Departures"
+        },
+        {
+          "calculate": "datum['Arrivals On Time']+datum['Arrivals Delayed']",
+          "as": "Num_Arrivals"
+        },
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Num_Departures", "as": "Departures"}
+          ], "groupby": ["Month", "Departing State"]
+        },
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Num_Arrivals", "as": "Arrivals"}
+          ], "groupby": ["Month", "Arriving State"]
+        }
+
+      ],
+      "mark": "line",
+      "encoding": {
+      "x": {
+        "field": "Month",
+        "type": "ordinal",
+        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      },
+      "y": {
+        "field": "Departures",
+        "type": "quantitative"
+      }
+      }
+    }
+  ]
+}
