@@ -13,7 +13,7 @@
     },
     {
       "name": "Graticules",
-      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/AusMapWithGraticules.json",
+      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/js/AusMapWithGraticules.json",
       "format": {"type": "topojson", "feature": "ne_110m_graticules_10"}
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "name": "Aus_States",
-      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/AusMapWithGraticules.json",
+      "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/js/AusMapWithGraticules.json",
       "format": {
         "type": "topojson",
         "feature": "GCCSA_2021_AUST_GDA2020",
