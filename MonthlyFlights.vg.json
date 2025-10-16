@@ -36,6 +36,7 @@
     },
     "y":{
       "field": "Breakdown",
+      "title": "Number of Flights",
       "type": "quantitative"
     },
     "color":{
