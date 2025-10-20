@@ -23,8 +23,7 @@
         "y": {
           "field": "value",
           "type": "quantitative",
-          "title": "Number of Travellers",
-          "scale": {"domain": [14000000, 24000000]}
+          "title": "Number of Travellers"
         },
         "color":{
           "field": "key",
@@ -34,7 +33,11 @@
           "field": "Month",
           "type": "ordinal",
           "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        }
+        },
+        "tooltip": [
+          {"field": "Month"},
+          {"field": "value", "format": ",", "title": "Number of Passengers Arriving/Departing"}
+        ]
       }
     },
     {
@@ -67,8 +70,7 @@
         "y": {
           "field": "value",
           "type": "quantitative",
-          "title": "Number of Flights",
-          "scale": {"domain": [4000000, 7000000]}
+          "title": "Number of Flights"
         },
         "color": {
           "field": "key",
@@ -78,7 +80,11 @@
           "field": "Month",
           "type": "ordinal",
           "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        }
+        },
+        "tooltip": [
+          {"field": "Month"},
+          {"field": "value", "format": ",", "title": "Number of Departures/Arrivals"}
+        ]
       }
     }
   ],
