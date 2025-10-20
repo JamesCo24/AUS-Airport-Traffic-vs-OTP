@@ -2,64 +2,87 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "layer": [
     {
-    "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv"},
-    "transform": [
-      {
-        "aggregate": [
-          {"op": "sum", "field": "Pax_In", "as": "State_Pax_In"},
-          {"op": "sum", "field": "Pax_Out", "as": "State_Pax_Out"},
-          {"op": "sum", "field": "Pax_Total", "as": "State_Pax"}
-        ], "groupby": ["Month", "State"]
-      }
-    ],
-    "mark": "line",
-    "encoding": {
-      "x": {
-        "field": "Month",
-        "type": "ordinal",
-        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv"},
+      "transform": [
+        {
+          "aggregate": [
+            {"field": "Pax_In", "op": "sum", "as": "Monthly_Pax_In"},
+            {"field": "Pax_Out", "op": "sum", "as": "Monthly_Pax_Out"}
+          ],
+          "groupby": ["Month"]
+        },
+        {
+          "fold": ["Monthly_Pax_In", "Monthly_Pax_Out"]
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "point": true
       },
-      "y": {
-        "field": "State_Pax",
-        "type": "quantitative"
+      "encoding": {
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Number of Travellers",
+          "scale": {"domain": [14000000, 24000000]}
+        },
+        "color":{
+          "field": "key",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "Month",
+          "type": "ordinal",
+          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        }
       }
-    }
     },
     {
       "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"},
       "transform": [
         {
           "calculate": "datum['Departures On Time']+datum['Departures Delayed']",
-          "as": "Num_Departures"
+          "as": "Total_Departures"
         },
         {
           "calculate": "datum['Arrivals On Time']+datum['Arrivals Delayed']",
-          "as": "Num_Arrivals"
+          "as": "Total_Arrivals"
         },
         {
-          "aggregate": [
-            {"op": "sum", "field": "Num_Departures", "as": "Departures"}
-          ], "groupby": ["Month", "Departing State"]
+          "joinaggregate": [
+            {"field": "Total_Departures", "op": "sum", "as": "Monthly_Departures"},
+            {"field": "Total_Arrivals", "op": "sum", "as": "Monthly_Arrivals"}
+          ],
+          "groupby": ["Month"]
         },
         {
-          "aggregate": [
-            {"op": "sum", "field": "Num_Arrivals", "as": "Arrivals"}
-          ], "groupby": ["Month", "Arriving State"]
+          "fold": ["Monthly_Departures", "Monthly_Arrivals"]
         }
-
       ],
-      "mark": "line",
-      "encoding": {
-      "x": {
-        "field": "Month",
-        "type": "ordinal",
-        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      "mark": {
+        "type": "line",
+        "point": true
       },
-      "y": {
-        "field": "Departures",
-        "type": "quantitative"
-      }
+      "encoding": {
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Number of Flights",
+          "scale": {"domain": [4000000, 7000000]}
+        },
+        "color": {
+          "field": "key",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "Month",
+          "type": "ordinal",
+          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        }
       }
     }
-  ]
+  ],
+  "resolve": {
+    "scale": {"y": "independent"}
+  }
 }
