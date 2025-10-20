@@ -356,7 +356,7 @@
 450,Melbourne,Newcastle,January,297,1,103,97,35,41,Victoria,New South Wales
 451,Melbourne,Perth,January,710,9,318,334,180,164,Victoria,Western Australia
 452,Melbourne,Sunshine Coast,January,1058,3,195,196,67,66,Victoria,Queensland
-453,Melbourne,Sydney,January,184,155,1368,1 369,576,575,Victoria,New South Wales
+453,Melbourne,Sydney,January,184,155,1368,1369,576,575,Victoria,New South Wales
 456,Newcastle,Brisbane,January,533,9,182,175,49,56,New South Wales,Queensland
 457,Newcastle,Melbourne,January,538,3,87,81,49,55,New South Wales,Victoria
 459,Perth,Adelaide,January,158,4,177,158,30,49,Western Australia,South Australia
@@ -378,7 +378,7 @@
 485,Sydney,Hamilton Island,January,141,3,61,61,19,19,New South Wales,Queensland
 486,Sydney,Hobart,January,185,2,233,242,50,41,New South Wales,Tasmania
 487,Sydney,Launceston,January,541,3,102,105,28,25,New South Wales,Tasmania
-488,Sydney,Melbourne,January,179,152,1369,1 303,571,637,New South Wales,Victoria
+488,Sydney,Melbourne,January,179,152,1369,1303,571,637,New South Wales,Victoria
 489,Sydney,Perth,January,145,5,315,304,138,149,New South Wales,Western Australia
 491,Sydney,Sunshine Coast,January,155,1,196,194,58,60,New South Wales,Queensland
 493,Townsville,Brisbane,January,293,20,185,177,114,122,Queensland,Queensland
@@ -734,7 +734,7 @@
 942,Melbourne,Newcastle,February,58,3,104,93,44,55,Victoria,New South Wales
 943,Melbourne,Perth,February,59,8,283,279,154,158,Victoria,Western Australia
 944,Melbourne,Sunshine Coast,February,234,1,125,115,39,49,Victoria,Queensland
-945,Melbourne,Sydney,February,162,139,1570,1 402,525,693,Victoria,New South Wales
+945,Melbourne,Sydney,February,162,139,1570,1402,525,693,Victoria,New South Wales
 948,Newcastle,Brisbane,February,402,6,182,177,53,58,New South Wales,Queensland
 949,Newcastle,Melbourne,February,679,2,103,94,46,55,New South Wales,Victoria
 951,Perth,Adelaide,February,68,15,146,137,40,49,Western Australia,South Australia
@@ -756,7 +756,7 @@
 977,Sydney,Hamilton Island,February,168,2,59,51,15,23,New South Wales,Queensland
 978,Sydney,Hobart,February,199,7,190,191,45,44,New South Wales,Tasmania
 979,Sydney,Launceston,February,241,3,87,87,15,15,New South Wales,Tasmania
-980,Sydney,Melbourne,February,135,146,1498,1 438,576,636,New South Wales,Victoria
+980,Sydney,Melbourne,February,135,146,1498,1438,576,636,New South Wales,Victoria
 981,Sydney,Perth,February,58,11,222,237,149,134,New South Wales,Western Australia
 983,Sydney,Sunshine Coast,February,239,1,160,158,46,48,New South Wales,Queensland
 985,Townsville,Brisbane,February,170,9,213,204,78,87,Queensland,Queensland
@@ -1077,7 +1077,7 @@
 1390,Brisbane,Perth,March,240,4,225,259,78,44,Queensland,Western Australia
 1391,Brisbane,Proserpine,March,251,0,74,71,10,13,Queensland,Queensland
 1392,Brisbane,Rockhampton,March,68,13,215,203,105,117,Queensland,Queensland
-1393,Brisbane,Sydney,March,322,59,1024,1 037,261,248,Queensland,New South Wales
+1393,Brisbane,Sydney,March,322,59,1024,1037,261,248,Queensland,New South Wales
 1394,Brisbane,Townsville,March,1226,5,252,247,86,91,Queensland,Queensland
 1396,Cairns,Brisbane,March,145,21,250,269,116,97,Queensland,Queensland
 1397,Cairns,Melbourne,March,137,1,123,124,53,52,Queensland,Victoria
@@ -1116,7 +1116,7 @@
 1438,Melbourne,Newcastle,March,133,1,103,107,52,48,Victoria,New South Wales
 1439,Melbourne,Perth,March,2135,5,355,372,138,121,Victoria,Western Australia
 1440,Melbourne,Sunshine Coast,March,188,0,136,140,42,38,Victoria,Queensland
-1441,Melbourne,Sydney,March,61,139,1853,1 801,405,457,Victoria,New South Wales
+1441,Melbourne,Sydney,March,61,139,1853,1801,405,457,Victoria,New South Wales
 1444,Newcastle,Brisbane,March,190,9,181,185,65,61,New South Wales,Queensland
 1445,Newcastle,Melbourne,March,199,2,111,108,47,50,New South Wales,Victoria
 1447,Perth,Adelaide,March,143,22,124,116,69,77,Western Australia,South Australia
@@ -1131,14 +1131,14 @@
 1463,Sunshine Coast,Sydney,March,244,3,172,173,48,47,Queensland,New South Wales
 1464,Sydney,Adelaide,March,180,12,443,462,115,96,New South Wales,South Australia
 1466,Sydney,Ballina,March,132,0,157,155,23,25,New South Wales,New South Wales
-1467,Sydney,Brisbane,March,1226,55,1060,1 049,228,239,New South Wales,Queensland
+1467,Sydney,Brisbane,March,1226,55,1060,1049,228,239,New South Wales,Queensland
 1468,Sydney,Cairns,March,198,2,169,180,40,29,New South Wales,Queensland
 1469,Sydney,Canberra,March,695,7,529,535,129,123,New South Wales,Australian Capital Territory
 1472,Sydney,Gold Coast,March,234,11,563,571,125,117,New South Wales,Queensland
 1473,Sydney,Hamilton Island,March,621,0,63,59,17,21,New South Wales,Queensland
 1474,Sydney,Hobart,March,72,2,201,214,48,35,New South Wales,Tasmania
 1475,Sydney,Launceston,March,233,0,105,109,11,7,New South Wales,Tasmania
-1476,Sydney,Melbourne,March,85,143,1808,1 764,434,478,New South Wales,Victoria
+1476,Sydney,Melbourne,March,85,143,1808,1764,434,478,New South Wales,Victoria
 1477,Sydney,Perth,March,2136,12,263,289,127,101,New South Wales,Western Australia
 1479,Sydney,Sunshine Coast,March,155,0,176,175,46,47,New South Wales,Queensland
 1481,Townsville,Brisbane,March,181,5,259,246,79,92,Queensland,Queensland
@@ -1494,7 +1494,7 @@
 1924,Melbourne,Newcastle,April,119,1,112,94,42,60,Victoria,New South Wales
 1925,Melbourne,Perth,April,6,5,366,426,131,71,Victoria,Western Australia
 1926,Melbourne,Sunshine Coast,April,1,0,169,156,26,39,Victoria,Queensland
-1927,Melbourne,Sydney,April,2,102,1769,1 630,353,492,Victoria,New South Wales
+1927,Melbourne,Sydney,April,2,102,1769,1630,353,492,Victoria,New South Wales
 1930,Newcastle,Brisbane,April,33,1,175,170,43,48,New South Wales,Queensland
 1931,Newcastle,Melbourne,April,4,1,111,109,43,45,New South Wales,Victoria
 1933,Perth,Adelaide,April,120,2,164,125,38,77,Western Australia,South Australia
@@ -1516,7 +1516,7 @@
 1959,Sydney,Hamilton Island,April,18,0,56,59,23,20,New South Wales,Queensland
 1960,Sydney,Hobart,April,21,2,200,204,40,36,New South Wales,Tasmania
 1961,Sydney,Launceston,April,21,1,74,88,37,23,New South Wales,Tasmania
-1962,Sydney,Melbourne,April,19,109,1627,1 655,482,454,New South Wales,Victoria
+1962,Sydney,Melbourne,April,19,109,1627,1655,482,454,New South Wales,Victoria
 1963,Sydney,Perth,April,11,0,302,370,120,52,New South Wales,Western Australia
 1965,Sydney,Sunshine Coast,April,32,3,157,158,56,55,New South Wales,Queensland
 1967,Townsville,Brisbane,April,14,0,265,268,76,73,Queensland,Queensland
@@ -1823,7 +1823,7 @@
 2352,Brisbane,Perth,May,10,0,218,269,75,24,Queensland,Western Australia
 2353,Brisbane,Proserpine,May,56,0,50,48,20,22,Queensland,Queensland
 2354,Brisbane,Rockhampton,May,97,3,291,271,76,96,Queensland,Queensland
-2355,Brisbane,Sydney,May,7,33,1111,1 077,224,258,Queensland,New South Wales
+2355,Brisbane,Sydney,May,7,33,1111,1077,224,258,Queensland,New South Wales
 2356,Brisbane,Townsville,May,125,1,267,238,82,111,Queensland,Queensland
 2358,Cairns,Brisbane,May,75,1,311,360,141,92,Queensland,Queensland
 2359,Cairns,Melbourne,May,54,0,107,130,48,25,Queensland,Victoria
@@ -1862,7 +1862,7 @@
 2400,Melbourne,Newcastle,May,57,4,117,105,31,43,Victoria,New South Wales
 2401,Melbourne,Perth,May,9545,5,362,410,105,57,Victoria,Western Australia
 2402,Melbourne,Sunshine Coast,May,28,0,128,126,33,35,Victoria,Queensland
-2403,Melbourne,Sydney,May,18,155,1916,1 736,302,482,Victoria,New South Wales
+2403,Melbourne,Sydney,May,18,155,1916,1736,302,482,Victoria,New South Wales
 2406,Newcastle,Brisbane,May,62,4,180,168,39,51,New South Wales,Queensland
 2407,Newcastle,Melbourne,May,27,4,116,119,32,29,New South Wales,Victoria
 2409,Perth,Adelaide,May,11,4,169,133,24,60,Western Australia,South Australia
@@ -1877,14 +1877,14 @@
 2425,Sunshine Coast,Sydney,May,13,1,147,127,48,68,Queensland,New South Wales
 2426,Sydney,Adelaide,May,26,9,463,497,124,90,New South Wales,South Australia
 2428,Sydney,Ballina,May,34,2,142,142,15,15,New South Wales,New South Wales
-2429,Sydney,Brisbane,May,24,36,1084,1 045,242,281,New South Wales,Queensland
+2429,Sydney,Brisbane,May,24,36,1084,1045,242,281,New South Wales,Queensland
 2430,Sydney,Cairns,May,61,0,158,149,37,46,New South Wales,Queensland
 2431,Sydney,Canberra,May,31,32,547,562,116,101,New South Wales,Australian Capital Territory
 2434,Sydney,Gold Coast,May,26,2,516,512,139,143,New South Wales,Queensland
 2435,Sydney,Hamilton Island,May,62,0,49,36,12,25,New South Wales,Queensland
 2436,Sydney,Hobart,May,1274,2,165,169,48,44,New South Wales,Tasmania
 2437,Sydney,Launceston,May,31,1,68,70,16,14,New South Wales,Tasmania
-2438,Sydney,Melbourne,May,70,150,1733,1 778,484,439,New South Wales,Victoria
+2438,Sydney,Melbourne,May,70,150,1733,1778,484,439,New South Wales,Victoria
 2439,Sydney,Perth,May,17,2,278,354,124,48,New South Wales,Western Australia
 2441,Sydney,Sunshine Coast,May,70,0,147,148,49,48,New South Wales,Queensland
 2443,Townsville,Brisbane,May,30,0,236,259,114,91,Queensland,Queensland
@@ -2230,7 +2230,7 @@
 2878,Melbourne,Newcastle,June,49,2,110,102,33,41,Victoria,New South Wales
 2879,Melbourne,Perth,June,21,13,331,303,102,130,Victoria,Western Australia
 2880,Melbourne,Sunshine Coast,June,55,1,147,135,19,31,Victoria,Queensland
-2881,Melbourne,Sydney,June,33,133,1707,1 649,380,438,Victoria,New South Wales
+2881,Melbourne,Sydney,June,33,133,1707,1649,380,438,Victoria,New South Wales
 2884,Newcastle,Brisbane,June,13,2,158,148,50,60,New South Wales,Queensland
 2885,Newcastle,Melbourne,June,8,2,110,105,35,40,New South Wales,Victoria
 2887,Perth,Adelaide,June,17,7,140,141,37,36,Western Australia,South Australia
@@ -2252,7 +2252,7 @@
 2913,Sydney,Hamilton Island,June,18,0,53,40,7,20,New South Wales,Queensland
 2914,Sydney,Hobart,June,28,1,169,164,39,44,New South Wales,Tasmania
 2915,Sydney,Launceston,June,17,3,59,61,26,24,New South Wales,Tasmania
-2916,Sydney,Melbourne,June,28,129,1687,1 643,392,436,New South Wales,Victoria
+2916,Sydney,Melbourne,June,28,129,1687,1643,392,436,New South Wales,Victoria
 2917,Sydney,Perth,June,21,10,286,266,91,111,New South Wales,Western Australia
 2919,Sydney,Sunshine Coast,June,13,1,137,139,40,38,New South Wales,Queensland
 2921,Townsville,Brisbane,June,21,2,223,244,121,100,Queensland,Queensland
@@ -2608,7 +2608,7 @@
 3366,Melbourne,Newcastle,July,23,1,119,105,39,53,Victoria,New South Wales
 3367,Melbourne,Perth,July,15,13,365,362,155,158,Victoria,Western Australia
 3368,Melbourne,Sunshine Coast,July,12,0,125,126,54,53,Victoria,Queensland
-3369,Melbourne,Sydney,July,48,206,1682,1 495,464,651,Victoria,New South Wales
+3369,Melbourne,Sydney,July,48,206,1682,1495,464,651,Victoria,New South Wales
 3372,Newcastle,Brisbane,July,42,2,157,148,70,79,New South Wales,Queensland
 3373,Newcastle,Melbourne,July,1929,2,114,117,43,40,New South Wales,Victoria
 3375,Perth,Adelaide,July,76,4,148,160,60,48,Western Australia,South Australia
@@ -2630,7 +2630,7 @@
 3401,Sydney,Hamilton Island,July,7,0,56,51,25,30,New South Wales,Queensland
 3402,Sydney,Hobart,July,18,2,184,190,51,45,New South Wales,Tasmania
 3403,Sydney,Launceston,July,28,2,67,77,32,22,New South Wales,Tasmania
-3404,Sydney,Melbourne,July,38,205,1535,1 503,610,642,New South Wales,Victoria
+3404,Sydney,Melbourne,July,38,205,1535,1503,610,642,New South Wales,Victoria
 3405,Sydney,Perth,July,67,4,287,292,142,137,New South Wales,Western Australia
 3407,Sydney,Sunshine Coast,July,17,3,157,162,57,52,New South Wales,Queensland
 3409,Townsville,Brisbane,July,34,2,217,242,169,144,Queensland,Queensland
@@ -2986,7 +2986,7 @@
 3856,Melbourne,Newcastle,August,56,3,116,111,37,42,Victoria,New South Wales
 3857,Melbourne,Perth,August,106,18,342,267,139,214,Victoria,Western Australia
 3858,Melbourne,Sunshine Coast,August,58,0,125,127,31,29,Victoria,Queensland
-3859,Melbourne,Sydney,August,17,173,1495,1 468,462,489,Victoria,New South Wales
+3859,Melbourne,Sydney,August,17,173,1495,1468,462,489,Victoria,New South Wales
 3862,Newcastle,Brisbane,August,29,0,140,133,82,89,New South Wales,Queensland
 3863,Newcastle,Melbourne,August,58,4,123,121,31,33,New South Wales,Victoria
 3865,Perth,Adelaide,August,14,7,132,144,65,53,Western Australia,South Australia
@@ -3008,7 +3008,7 @@
 3891,Sydney,Hamilton Island,August,81,0,59,57,16,18,New South Wales,Queensland
 3892,Sydney,Hobart,August,6584,0,170,173,47,44,New South Wales,Tasmania
 3893,Sydney,Launceston,August,106,0,70,74,23,19,New South Wales,Tasmania
-3894,Sydney,Melbourne,August,40,171,1497,1 394,468,571,New South Wales,Victoria
+3894,Sydney,Melbourne,August,40,171,1497,1394,468,571,New South Wales,Victoria
 3895,Sydney,Perth,August,10,7,277,203,132,206,New South Wales,Western Australia
 3897,Sydney,Sunshine Coast,August,15,0,164,166,42,40,New South Wales,Queensland
 3899,Townsville,Brisbane,August,32,0,221,206,161,176,Queensland,Queensland
@@ -3342,7 +3342,7 @@
 4324,Melbourne,Newcastle,September,106,1,120,115,33,38,Victoria,New South Wales
 4325,Melbourne,Perth,September,31,6,352,337,139,154,Victoria,Western Australia
 4326,Melbourne,Sunshine Coast,September,18,0,144,143,34,35,Victoria,Queensland
-4327,Melbourne,Sydney,September,13,109,1590,1 532,444,502,Victoria,New South Wales
+4327,Melbourne,Sydney,September,13,109,1590,1532,444,502,Victoria,New South Wales
 4330,Newcastle,Brisbane,September,110,5,166,153,46,59,New South Wales,Queensland
 4331,Newcastle,Melbourne,September,71,1,125,121,28,32,New South Wales,Victoria
 4333,Perth,Adelaide,September,21,1,138,119,58,77,Western Australia,South Australia
@@ -3364,7 +3364,7 @@
 4359,Sydney,Hamilton Island,September,161,0,68,62,11,17,New South Wales,Queensland
 4360,Sydney,Hobart,September,31,3,192,183,35,44,New South Wales,Tasmania
 4361,Sydney,Launceston,September,59,2,73,74,24,23,New South Wales,Tasmania
-4362,Sydney,Melbourne,September,13,102,1608,1 487,429,550,New South Wales,Victoria
+4362,Sydney,Melbourne,September,13,102,1608,1487,429,550,New South Wales,Victoria
 4363,Sydney,Perth,September,40,1,293,295,123,121,New South Wales,Western Australia
 4365,Sydney,Sunshine Coast,September,18,1,150,154,54,50,New South Wales,Queensland
 4367,Townsville,Brisbane,September,39,7,240,229,121,132,Queensland,Queensland
@@ -3700,7 +3700,7 @@
 4792,Melbourne,Newcastle,October,19,2,109,107,46,48,Victoria,New South Wales
 4793,Melbourne,Perth,October,34,4,346,335,162,173,Victoria,Western Australia
 4794,Melbourne,Sunshine Coast,October,28,0,127,122,43,48,Victoria,Queensland
-4795,Melbourne,Sydney,October,24,57,1615,1 519,506,602,Victoria,New South Wales
+4795,Melbourne,Sydney,October,24,57,1615,1519,506,602,Victoria,New South Wales
 4798,Newcastle,Brisbane,October,21,4,161,157,61,65,New South Wales,Queensland
 4799,Newcastle,Melbourne,October,40,2,115,116,40,39,New South Wales,Victoria
 4801,Perth,Adelaide,October,34,0,141,133,58,66,Western Australia,South Australia
@@ -3722,7 +3722,7 @@
 4827,Sydney,Hamilton Island,October,8,0,56,64,22,14,New South Wales,Queensland
 4828,Sydney,Hobart,October,18,1,185,182,56,59,New South Wales,Tasmania
 4829,Sydney,Launceston,October,43,0,76,79,21,18,New South Wales,Tasmania
-4830,Sydney,Melbourne,October,43,55,1558,1 526,573,605,New South Wales,Victoria
+4830,Sydney,Melbourne,October,43,55,1558,1526,573,605,New South Wales,Victoria
 4831,Sydney,Perth,October,253,5,261,273,166,154,New South Wales,Western Australia
 4833,Sydney,Sunshine Coast,October,162,0,152,156,68,64,New South Wales,Queensland
 4835,Townsville,Brisbane,October,52,10,251,249,119,121,Queensland,Queensland
@@ -4048,7 +4048,7 @@
 5248,Melbourne,Newcastle,November,371,2,88,99,60,49,Victoria,New South Wales
 5249,Melbourne,Perth,November,56,7,298,292,193,199,Victoria,Western Australia
 5250,Melbourne,Sunshine Coast,November,39,1,126,128,61,59,Victoria,Queensland
-5251,Melbourne,Sydney,November,96,108,1261,1 159,679,781,Victoria,New South Wales
+5251,Melbourne,Sydney,November,96,108,1261,1159,679,781,Victoria,New South Wales
 5254,Newcastle,Brisbane,November,36,5,138,136,74,76,New South Wales,Queensland
 5255,Newcastle,Melbourne,November,8,3,109,107,39,41,New South Wales,Victoria
 5257,Perth,Adelaide,November,1,0,148,135,44,57,Western Australia,South Australia
@@ -4070,7 +4070,7 @@
 5283,Sydney,Hamilton Island,November,84,1,40,42,30,28,New South Wales,Queensland
 5284,Sydney,Hobart,November,243,9,157,169,75,63,New South Wales,Tasmania
 5285,Sydney,Launceston,November,506,4,58,57,38,39,New South Wales,Tasmania
-5286,Sydney,Melbourne,November,70,107,1149,1 160,794,783,New South Wales,Victoria
+5286,Sydney,Melbourne,November,70,107,1149,1160,794,783,New South Wales,Victoria
 5287,Sydney,Perth,November,189,5,233,193,186,226,New South Wales,Western Australia
 5289,Sydney,Sunshine Coast,November,72,4,148,145,72,75,New South Wales,Queensland
 5291,Townsville,Brisbane,November,896,7,256,254,94,96,Queensland,Queensland
@@ -4398,7 +4398,7 @@
 5708,Melbourne,Newcastle,December,158,1,94,104,48,38,Victoria,New South Wales
 5709,Melbourne,Perth,December,43,6,391,339,138,190,Victoria,Western Australia
 5710,Melbourne,Sunshine Coast,December,124,0,184,189,43,38,Victoria,Queensland
-5711,Melbourne,Sydney,December,269,62,1417,1 368,462,511,Victoria,New South Wales
+5711,Melbourne,Sydney,December,269,62,1417,1368,462,511,Victoria,New South Wales
 5714,Newcastle,Brisbane,December,216,2,140,139,69,70,New South Wales,Queensland
 5715,Newcastle,Melbourne,December,92,1,107,112,35,30,New South Wales,Victoria
 5717,Perth,Adelaide,December,169,0,158,154,47,51,Western Australia,South Australia
@@ -4420,7 +4420,7 @@
 5743,Sydney,Hamilton Island,December,169,0,57,53,22,26,New South Wales,Queensland
 5744,Sydney,Hobart,December,67,6,171,178,97,90,New South Wales,Tasmania
 5745,Sydney,Launceston,December,555,2,85,81,35,39,New South Wales,Tasmania
-5746,Sydney,Melbourne,December,729,60,1344,1 396,531,479,New South Wales,Victoria
+5746,Sydney,Melbourne,December,729,60,1344,1396,531,479,New South Wales,Victoria
 5747,Sydney,Perth,December,71,3,288,272,164,180,New South Wales,Western Australia
 5749,Sydney,Sunshine Coast,December,88,1,180,172,62,70,New South Wales,Queensland
 5751,Townsville,Brisbane,December,224,1,222,214,135,143,Queensland,Queensland
