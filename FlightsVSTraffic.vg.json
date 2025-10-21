@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
   "layer": [
     {
       "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv"},
@@ -90,5 +91,6 @@
   ],
   "resolve": {
     "scale": {"y": "independent"}
-  }
+  },
+  "config": {}
 }

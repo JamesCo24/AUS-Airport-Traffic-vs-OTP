@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"
   },
@@ -51,7 +52,10 @@
     },
     "color":{
       "field": "Delay Type",
-      "type": "nominal"
+      "type": "nominal",
+      "legend": {
+        "orient": "left"
+      }
     },
     "tooltip":[
       {"field": "Monthly Flights", "type": "quantitative", "format": ","},
@@ -59,5 +63,6 @@
       {"field": "Departure Delay %", "type": "quantitative", "format": ".2f"},
       {"field": "Arrival Delay %", "type": "quantitative", "format": ".2f"}
     ]
-  }
+  },
+  "config": {}
 }

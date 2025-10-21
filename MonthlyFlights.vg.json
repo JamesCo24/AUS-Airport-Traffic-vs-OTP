@@ -1,54 +1,135 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"
-  },
-  "transform": [
+  "hconcat": [
     {
-      "aggregate": [
-        {"op": "sum", "field": "Departures Delayed", "as": "Monthly Delayed Departures"},
-        {"op": "sum", "field": "Arrivals Delayed", "as": "Monthly Delayed Arrivals"},
-        {"op": "sum", "field": "Sectors Scheduled", "as": "Monthly Sectors Scheduled"},
-        {"op": "sum", "field": "Cancellations", "as": "Monthly Cancellations"}
-      ], "groupby": ["Month"]
+      "data": {
+        "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"
+      },
+      "width": "container",
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Departures Delayed", "as": "Monthly Delayed Departures"},
+            {"op": "sum", "field": "Arrivals Delayed", "as": "Monthly Delayed Arrivals"},
+            {"op": "sum", "field": "Sectors Scheduled", "as": "Monthly Sectors Scheduled"},
+            {"op": "sum", "field": "Cancellations", "as": "Monthly Cancellations"}
+          ], "groupby": ["Month"]
+        },
+        {
+          "calculate": "datum['Monthly Sectors Scheduled']-datum['Monthly Cancellations']", "as": "Monthly Flights"
+        },
+        {
+          "calculate": "datum['Monthly Flights']-datum['Monthly Delayed Departures']-datum['Monthly Delayed Arrivals']", "as": "Monthly On Time"
+        },
+        {
+          "fold": ["Monthly On Time", "Monthly Delayed Departures", "Monthly Delayed Arrivals"], "as": ["Delay Type", "Delay Count"]
+        },
+        {
+          "joinaggregate": [
+            {"op": "sum", "field": "Delay Count", "as": "Breakdown"}
+          ], "groupby": ["Delay Type", "Month"]
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Month",
+          "type": "ordinal",
+          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+          "axis": {"labelAngle": 45}
+        },
+        "y":{
+          "field": "Breakdown",
+          "title": "Number of Flights",
+          "type": "quantitative"
+        },
+        "color":{
+          "field": "Delay Type",
+          "type": "nominal",
+          "legend": {
+            "orient": "right"
+          }
+        },
+        "tooltip":[
+          {"field": "Monthly Flights", "type": "quantitative", "format": ","},
+          {"field": "Monthly On Time", "type": "quantitative", "format": ","},
+          {"field": "Monthly Delayed Departures", "type": "quantitative", "format": ","},
+          {"field": "Monthly Delayed Arrivals", "type": "quantitative", "format": ","}
+        ]
+      }
     },
     {
-      "calculate": "datum['Monthly Sectors Scheduled']-datum['Monthly Cancellations']", "as": "Monthly Flights"
+      "data": {
+          "url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"
+        },
+        "width": "container",
+        "transform": [
+          {
+            "aggregate": [
+              {"op": "sum", "field": "Departures Delayed", "as": "Monthly Delayed Departures"},
+              {"op": "sum", "field": "Arrivals Delayed", "as": "Monthly Delayed Arrivals"},
+              {"op": "sum", "field": "Sectors Scheduled", "as": "Monthly Sectors Scheduled"},
+              {"op": "sum", "field": "Cancellations", "as": "Monthly Cancellations"}
+            ], "groupby": ["Month"]
+          },
+          {
+            "calculate": "datum['Monthly Sectors Scheduled']-datum['Monthly Cancellations']", "as": "Monthly Flights"
+          },
+          {
+            "calculate": "datum['Monthly Flights']-datum['Monthly Delayed Departures']-datum['Monthly Delayed Arrivals']", "as": "Monthly On Time"
+          },
+          {
+              "calculate": "100*datum['Monthly Delayed Departures']/(datum['Monthly Flights'])", "as": "Departure Delay %"
+          },
+          {
+              "calculate": "100*datum['Monthly Delayed Arrivals']/(datum['Monthly Flights'])", "as": "Arrival Delay %"
+          },
+          {
+              "calculate": "100*datum['Monthly On Time']/(datum['Monthly Flights'])", "as": "On Time %"
+          },
+          {
+            "fold": ["Monthly On Time", "Monthly Delayed Departures", "Monthly Delayed Arrivals"], "as": ["Delay Type", "Delay Count"]
+          },
+          {
+            "joinaggregate": [
+              {"op": "sum", "field": "Delay Count", "as": "Breakdown"}
+            ], "groupby": ["Delay Type", "Month"]
+          }
+        ],
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Month",
+            "type": "ordinal",
+            "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "axis": {"labelAngle": 45}
+          },
+          "y":{
+              "title": "Proportion of Flights",
+              "field": "Breakdown",
+              "type": "quantitative",
+              "stack": "normalize",
+              "axis": {"format": ".0%"}
+          },
+          "color":{
+            "field": "Delay Type",
+            "type": "nominal"
+          },
+          "tooltip":[
+            {"field": "Monthly Flights", "type": "quantitative", "format": ","},
+            {"field": "On Time %", "type": "quantitative", "format": ".2f"},
+            {"field": "Departure Delay %", "type": "quantitative", "format": ".2f"},
+            {"field": "Arrival Delay %", "type": "quantitative", "format": ".2f"}
+          ]
+        }
+      }
+    ],
+    "resolve": {
+      "legend": {
+        "color": "shared"
+      }
     },
-    {
-      "calculate": "datum['Monthly Flights']-datum['Monthly Delayed Departures']-datum['Monthly Delayed Arrivals']", "as": "Monthly On Time"
-    },
-    {
-      "fold": ["Monthly On Time", "Monthly Delayed Departures", "Monthly Delayed Arrivals"], "as": ["Delay Type", "Delay Count"]
-    },
-    {
-      "joinaggregate": [
-        {"op": "sum", "field": "Delay Count", "as": "Breakdown"}
-      ], "groupby": ["Delay Type", "Month"]
-    }
-  ],
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "Month",
-      "type": "ordinal",
-      "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    },
-    "y":{
-      "field": "Breakdown",
-      "title": "Number of Flights",
-      "type": "quantitative"
-    },
-    "color":{
-      "field": "Delay Type",
-      "type": "nominal",
-      "legend": null
-    },
-    "tooltip":[
-      {"field": "Monthly Flights", "type": "quantitative", "format": ","},
-      {"field": "Monthly On Time", "type": "quantitative", "format": ","},
-      {"field": "Monthly Delayed Departures", "type": "quantitative", "format": ","},
-      {"field": "Monthly Delayed Arrivals", "type": "quantitative", "format": ","}
-    ]
+  "config": {
+    
   }
 }
