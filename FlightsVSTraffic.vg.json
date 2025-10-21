@@ -1,19 +1,40 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
   "layer": [
     {
+      "params": [{
+        "name": "hover",
+        "select": {
+          "type": "point",
+          "fields": ["key"],
+          "on": "mouseover",
+          "clear": true
+        }
+      }],
       "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_Traffic.csv"},
       "transform": [
         {
+          "calculate": "datum.Month == 'January' ? 1 : datum.Month == 'February' ? 2 : datum.Month == 'March' ? 3 : datum.Month == 'April' ? 4 : datum.Month == 'May' ? 5 : datum.Month == 'June' ? 6 : datum.Month == 'July' ? 7 : datum.Month == 'August' ? 8 : datum.Month == 'September' ? 9 : datum.Month == 'October' ? 10 : datum.Month == 'November' ? 11 : 12",
+          "as": "Month_Order"
+        },
+        {
           "aggregate": [
-            {"field": "Pax_In", "op": "sum", "as": "Monthly_Pax_In"},
-            {"field": "Pax_Out", "op": "sum", "as": "Monthly_Pax_Out"}
+            {"field": "Dom_Pax_In", "op": "sum", "as": "Monthly_Pax_In"},
+            {"field": "Dom_Pax_Out", "op": "sum", "as": "Monthly_Pax_Out"}
           ],
           "groupby": ["Month"]
         },
         {
-          "fold": ["Monthly_Pax_In", "Monthly_Pax_Out"]
+          "calculate": "datum['Monthly_Pax_In']+datum['Monthly_Pax_Out']", "as": "Monthly_Travellers"
+        },
+        {
+          "window": [
+            {"op": "lag", "field": "Monthly_Travellers", "as": "Prev_Month_Travellers"}
+          ], "sort": [{"field": "Month_Order", "order": "ascending"}]
+        },
+        {
+          "calculate": "((datum['Monthly_Travellers']-datum['Prev_Month_Travellers'])/datum['Prev_Month_Travellers'])",
+          "as": "Change in Travellers"
         }
       ],
       "mark": {
@@ -22,45 +43,62 @@
       },
       "encoding": {
         "y": {
-          "field": "value",
+          "field": "Change in Travellers",
           "type": "quantitative",
-          "title": "Number of Travellers"
-        },
-        "color":{
-          "field": "key",
-          "type": "nominal"
+          "axis": {"format": ".0%"}
         },
         "x": {
           "field": "Month",
           "type": "ordinal",
-          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+          "axis": {"labelAngle": 45}
         },
         "tooltip": [
           {"field": "Month"},
-          {"field": "value", "format": ",", "title": "Number of Passengers Arriving/Departing"}
-        ]
+          {"field": "Monthly_Travellers", "format": ",", "title": "Total Travellers"},
+          {"field": "Change in Travellers", "format": ".0%"}
+        ],
+        "color": {
+          "condition": {
+            "param": "hover",
+            "datum": "Change in Travellers"
+          },
+          "value": "grey"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "value": 1
+          },
+          "value": 0.2
+        }
       }
     },
     {
       "data": {"url": "https://raw.githubusercontent.com/JamesCo24/AUS-Airport-Traffic-vs-OTP/refs/heads/main/data/Airport_OTP.csv"},
       "transform": [
         {
-          "calculate": "datum['Departures On Time']+datum['Departures Delayed']",
-          "as": "Total_Departures"
+          "calculate": "datum.Month == 'January' ? 1 : datum.Month == 'February' ? 2 : datum.Month == 'March' ? 3 : datum.Month == 'April' ? 4 : datum.Month == 'May' ? 5 : datum.Month == 'June' ? 6 : datum.Month == 'July' ? 7 : datum.Month == 'August' ? 8 : datum.Month == 'September' ? 9 : datum.Month == 'October' ? 10 : datum.Month == 'November' ? 11 : 12",
+          "as": "Month_Order"
         },
         {
-          "calculate": "datum['Arrivals On Time']+datum['Arrivals Delayed']",
-          "as": "Total_Arrivals"
+          "calculate": "datum['Sectors Scheduled']-datum['Cancellations']",
+          "as": "Total_Flights"
         },
         {
-          "joinaggregate": [
-            {"field": "Total_Departures", "op": "sum", "as": "Monthly_Departures"},
-            {"field": "Total_Arrivals", "op": "sum", "as": "Monthly_Arrivals"}
+          "aggregate": [
+            {"field": "Total_Flights", "op": "sum", "as": "Monthly_Flights"}
           ],
           "groupby": ["Month"]
         },
+          {
+          "window": [
+            {"op": "lag", "field": "Monthly_Flights", "as": "Prev_Month_Flights"}
+          ], "sort": [{"field": "Month_Order", "order": "ascending"}]
+        },
         {
-          "fold": ["Monthly_Departures", "Monthly_Arrivals"]
+          "calculate": "((datum['Monthly_Flights']-datum['Prev_Month_Flights'])/datum['Prev_Month_Flights'])",
+          "as": "Change in Flights"
         }
       ],
       "mark": {
@@ -69,13 +107,10 @@
       },
       "encoding": {
         "y": {
-          "field": "value",
+          "field": "Change in Flights",
           "type": "quantitative",
-          "title": "Number of Flights"
-        },
-        "color": {
-          "field": "key",
-          "type": "nominal"
+          "title": "Percent Change",
+          "axis": {"format": ".0%"}
         },
         "x": {
           "field": "Month",
@@ -84,13 +119,28 @@
         },
         "tooltip": [
           {"field": "Month"},
-          {"field": "value", "format": ",", "title": "Number of Departures/Arrivals"}
-        ]
+          {"field": "Monthly_Flights", "format": ",", "title": "Total Flights"},
+          {"field": "Change in Flights", "format": ".0%"}
+        ],
+        "color":{
+          "condition": {
+            "param": "hover",
+            "datum": "Change in Flights"
+          },
+          "value": "grey"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "value": 1
+          },
+          "value": 0.2
+        }
       }
     }
   ],
   "resolve": {
-    "scale": {"y": "independent"}
+    "param": {"hover": "global"}
   },
   "config": {}
 }

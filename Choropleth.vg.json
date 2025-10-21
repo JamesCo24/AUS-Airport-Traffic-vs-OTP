@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
   "params": [
     {
       "name": "Month_Selection",
@@ -39,6 +38,34 @@
         ],
         "name": "Month Selection"
       }
+    },
+    {
+      "name": "State_Selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Queensland",
+          "South Australia",
+          "New South Wales",
+          "Western Australia",
+          "Australian Capital Territory",
+          "Northern Territory",
+          "Tasmania",
+          "Victoria"
+        ],
+        "labels": [
+          "All States",
+          "Queensland",
+          "South Australia",
+          "New South Wales",
+          "Western Australia",
+          "Australian Capital Territory",
+          "Northern Territory",
+          "Tasmania",
+          "Victoria"
+        ]
+      }
     }
   ],
   "projection": {"type": "mercator"},
@@ -68,7 +95,8 @@
             "key": "properties.STE_NAME21"
           },
           "as": "geo"
-        }
+        },
+        {"filter": "State_Selection==null||datum.State==State_Selection"}
       ],
       "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
       "encoding": {
@@ -78,9 +106,7 @@
           "type": "quantitative",
           "title": "State Travellers",
           "scale": {"scheme": "lighttealblue"},
-          "legend": {
-            "orient": "left"
-          }
+          "legend": {"orient": "left"}
         },
         "tooltip": [
           {"field": "State"},
@@ -101,19 +127,17 @@
             {"field": "Pax_Out", "op": "sum", "as": "Aiport_Pax_Out"}
           ],
           "groupby": ["Airport"]
-        }
+        },
+        {"filter": "State_Selection==null||datum.State==State_Selection"}
       ],
       "mark": "circle",
       "encoding": {
-        "opacity": {"value": 1},
         "fill": {"value": "violet"},
         "size": {
           "field": "Airport_Pax",
           "type": "quantitative",
           "title": "Airport Travellers",
-          "legend": {
-            "orient": "right"
-          }
+          "legend": {"orient": "right"}
         },
         "latitude": {"field": "latitude"},
         "longitude": {"field": "longitude"},
