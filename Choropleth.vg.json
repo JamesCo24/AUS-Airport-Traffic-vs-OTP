@@ -76,9 +76,9 @@
         {"filter": "Month_Selection==null||datum.Month == Month_Selection"},
         {
           "aggregate": [
-            {"field": "Pax_Total", "op": "sum", "as": "State_Pax"},
-            {"field": "Pax_In", "op": "sum", "as": "State_Pax_In"},
-            {"field": "Pax_Out", "op": "sum", "as": "State_Pax_Out"}
+            {"field": "Dom_Pax_Total", "op": "sum", "as": "State_Pax"},
+            {"field": "Dom_Pax_In", "op": "sum", "as": "State_Pax_In"},
+            {"field": "Dom_Pax_Out", "op": "sum", "as": "State_Pax_Out"}
           ],
           "groupby": ["State"]
         },
@@ -122,9 +122,9 @@
         {"filter": "Month_Selection==null||datum.Month == Month_Selection"},
         {
           "joinaggregate": [
-            {"field": "Pax_Total", "op": "sum", "as": "Airport_Pax"},
-            {"field": "Pax_In", "op": "sum", "as": "Airport_Pax_In"},
-            {"field": "Pax_Out", "op": "sum", "as": "Aiport_Pax_Out"}
+            {"field": "Dom_Pax_Total", "op": "sum", "as": "Airport_Pax"},
+            {"field": "Dom_Pax_In", "op": "sum", "as": "Airport_Pax_In"},
+            {"field": "Dom_Pax_Out", "op": "sum", "as": "Aiport_Pax_Out"}
           ],
           "groupby": ["Airport"]
         },
